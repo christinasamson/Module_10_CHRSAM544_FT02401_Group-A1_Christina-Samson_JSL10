@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return response.json();
             })
             .then(directions => {
-                return navigateLabyrinth(directions); // Assuming navigateLabyrinth returns a promise
+                return navigateLabyrinth(directions);
             })
             .then(message => {
                 document.getElementById("room3Result").textContent = message;
