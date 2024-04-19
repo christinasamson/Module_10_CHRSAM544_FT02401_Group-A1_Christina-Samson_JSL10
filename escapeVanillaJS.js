@@ -13,10 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("solveRoom2").addEventListener("click", () => {
         const jsConcepts = new Set(['closure', 'scope', 'hoisting']);
         // 🪲 Bug: What's mssing from JS concepts?
-        const reactConcepts = new Set(['async']);
+        const reactConcepts = new Set(['components', 'jsx', 'hooks', 'async']);
         // 🪲 Bug: Incorrect function call
-        const commonConcepts = findIntersection(jsConcepts, jsConcepts);
-        document.getElementById("room2Result").textContent = `The code to unlock the door is: ${Array.from(reactConcepts).join(', ')}`;
+        const commonConcepts = findIntersection(jsConcepts, reactConcepts);
+        document.getElementById("room2Result").textContent = `The code to unlock the door is: ${Array.from(commonConcepts).join(', ')}`;
     });
 
     // 🪲 Bug: Asynchronous function ?
@@ -48,7 +48,7 @@ function findMostRecentBook(books) {
 
 function findIntersection(setA, setB) {
     // 🪲 Bug: Incorrect logic
-    const intersection = new Set([...setA].filter(value=>setB.has(value)));
+    const intersection = new Set([...setA,...setB].filter(value => value.startsWith("a")));
     return intersection;
 }
 
